@@ -1,0 +1,13 @@
+{
+  "name": "sistema-gerenciador-de-usuarios",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "npm start": "ts-node server.ts"
+  },
+  "keywords": [],
+  "author": "Gustavo Silva Souza",
+  "license": "MIT",
+  "type": "module",
+  "description": "Containerized layered architecture system with a GraphQL API that works with JSON manipulation, without using any DBMS, to perform CRUD operations on users."
+}
