@@ -111,7 +111,6 @@
 
   "include": [
     "server.ts",
-    "./src/**/*.ts"
   ],
 
   "exclude": [

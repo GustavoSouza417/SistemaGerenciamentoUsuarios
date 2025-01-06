@@ -16,3 +16,4 @@ npm install ts-node
 
 : Other depencencies
 npm install dotenv
+npm install fs

@@ -9,5 +9,6 @@ type User {
 },
 
 type Query {
+    listUser: User,
     listUsers: [User]
 }

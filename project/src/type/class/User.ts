@@ -1,4 +1,4 @@
-import iUser from "../interface/User.js";
+import iUser from "../interface/user/User";
 
 export default class User {
     private readonly id: string;
