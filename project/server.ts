@@ -14,7 +14,7 @@ const server: ApolloServer = new ApolloServer({
     formatError: (err: GraphQLError | any) => {
         for(let error of Object.values(Errors)) {
             if(err.message.startsWith(error))
-                return new Error(error);
+                return new Error(err.message);
         }
         
         return err;
