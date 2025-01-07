@@ -4,6 +4,6 @@ export default interface iUser {
     cpf: string;
     email: string;
     name: string;
-    dateBirth: Date;
+    dateBirth: string;
     password: string;
 };
