@@ -18,7 +18,8 @@
     "fs": "^0.0.1-security",
     "graphql": "^16.10.0",
     "graphql-tools": "^9.0.11",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "validation-br": "^1.5.2"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
