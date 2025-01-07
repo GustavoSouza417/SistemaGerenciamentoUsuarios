@@ -1,13 +1,13 @@
 import iUser from "../interface/user/User";
 
-export default class User {
-    private readonly id: string;
-    private readonly cpf: string;
-    private readonly email: string;
-    private name: string;
-    private dateBirth: Date;
-    private password: string;
-    private profile: string;
+export default abstract class User {
+    protected readonly id: string;
+    protected readonly cpf: string;
+    protected readonly email: string;
+    protected name: string;
+    protected dateBirth: string;
+    protected password: string;
+    protected profile: string;
 
     constructor(user: iUser) {
         this.id = user.id;
@@ -36,7 +36,7 @@ export default class User {
         return this.name;
     };
 
-    public get getDateBirth(): Date {
+    public get getDateBirth(): string {
         return this.dateBirth;
     };
 
@@ -53,7 +53,7 @@ export default class User {
         this.name = name;
     };
 
-    public set setDateBirth(dateBirth: Date) {
+    public set setDateBirth(dateBirth: string) {
         this.dateBirth = dateBirth;
     };
 
