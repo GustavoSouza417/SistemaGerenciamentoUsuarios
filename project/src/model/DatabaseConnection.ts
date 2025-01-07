@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "fs";
 import iDatabase from "../type/interface/database/Database";
 import { Errors } from "../type/enum/Errors";
 
