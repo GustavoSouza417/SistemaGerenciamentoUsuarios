@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server";
 import { GraphQLError } from "graphql";
 import dotenv from "dotenv";
-import {typeDefs, resolvers} from "./src/graphql/merge";
+import { typeDefs, resolvers } from "./src/graphql/merge";
 import { Errors } from "./src/type/enum/Errors/Errors";
 
 dotenv.config({path: "./src/config/.env"});
