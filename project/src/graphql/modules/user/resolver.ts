@@ -1,13 +1,13 @@
-import iUser from "../../../type/interface/user/User";
+import UserService from "../../../service/UserService";
+import User from "../../../type/class/User";
 
 export default {
     Query: {
-        listUser(id: string): iUser | null {
-            id;
-            return null;
+        listUser(id: string): User | null {
+            return UserService.listUser(id);
         },
 
-        listUsers(): iUser[] | null {
+        listUsers(): User[] | null {
             return null;
         }
     }
