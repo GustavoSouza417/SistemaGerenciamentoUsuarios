@@ -2,3 +2,5 @@
 
 /src/config/.env
 /src/config/.tsbuildinfo
+
+*.js
