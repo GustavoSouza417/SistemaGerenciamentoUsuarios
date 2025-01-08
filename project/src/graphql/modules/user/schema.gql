@@ -9,6 +9,6 @@ type User {
 },
 
 type Query {
-    listUser: User,
+    listUser(id: ID!): User,
     listUsers: [User]
 }
