@@ -1,4 +1,4 @@
-type Perfil {
+type Profile {
     id: ID!,
     name: String!
 }
