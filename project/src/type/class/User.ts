@@ -1,4 +1,4 @@
-import iUser from "../interface/user/User";
+import iUser from "../interface/user/User.js";
 
 export default abstract class User {
     protected readonly id: string;

@@ -1,6 +1,6 @@
-import DatabaseConnection from "../model/DatabaseConnection";
-import iDatabase from "../type/interface/database/Database";
-import iUser from "../type/interface/user/User";
+import DatabaseConnection from "../model/DatabaseConnection.js";
+import iDatabase from "../type/interface/database/Database.js";
+import iUser from "../type/interface/user/User.js";
 
 export default class UserDAO {
     public static create(user: iUser): void {

@@ -1,10 +1,10 @@
-import User from "../type/class/User";
-// import UserValidator from "../validator/UserValidator";
+import User from "../type/class/User.js";
+import UserValidator from "../validator/UserValidator.js";
 
 export default class UserService {
     public static listUser(id: string): User | null {
+        UserValidator.isIdValid(id);
         
-        id;
         return null;
     };
 };

@@ -1,6 +1,6 @@
 import { isCPF } from "validation-br";
-import { Errors } from "../type/enum/Errors/Errors";
-import { Profiles } from "../type/enum/Profiles/profiles";
+import { Errors } from "../type/enum/errors/Errors.js";
+import { Profiles } from "../type/enum/profiles/Profiles.js";
 
 export default class UserValidator {
     //falta verificar se o ID já existe ou não

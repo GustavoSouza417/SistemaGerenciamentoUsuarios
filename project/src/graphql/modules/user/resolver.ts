@@ -1,5 +1,5 @@
-import UserService from "../../../service/UserService";
-import User from "../../../type/class/User";
+import UserService from "../../../service/UserService.js";
+import User from "../../../type/class/User.js";
 
 export default {
     Query: {
