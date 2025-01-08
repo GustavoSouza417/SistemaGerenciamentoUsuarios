@@ -4,7 +4,7 @@ import { Profiles } from "../type/enum/profiles/Profiles.js";
 
 export default class UserValidator {
     //falta verificar se o ID já existe ou não
-    public static isIdValid(id: string): boolean {
+    public static isIdValid(id: string): void {
         const regex: RegExp = /^[0-9]+$/;
         
         if(typeof id !== "string")
@@ -17,12 +17,10 @@ export default class UserValidator {
 
         if(!regex.test(id))
             throw new Error(Errors.ERROR_INVALID_ID + ": caracteres inválidos");
-
-        return true;
     };
 
     //falta verificar se o CPF já existe ou não
-    public static isCpfValid(cpf: string): boolean {
+    public static isCpfValid(cpf: string): void {
         const regex: RegExp = /^[0-9]+$/;
         
         if(typeof cpf !== "string")
@@ -38,12 +36,10 @@ export default class UserValidator {
             
         if(!isCPF(cpf))
             throw new Error(Errors.ERROR_INVALID_CPF + ": CPF inválido");
-
-        return true;
     };
 
     //falta verificar se o e-mail já existe ou não
-    public static isEmailValid(email: string): boolean {
+    public static isEmailValid(email: string): void {
         const regex: RegExp = /^[a-zA-Z0-9.+-_%]+$/;
         
         if(typeof email !== "string")
@@ -66,11 +62,9 @@ export default class UserValidator {
 
         if(email.substring(email.length - 10) !== "@gmail.com") //verifica os últimos 10 dígitos do e-mail
             throw new Error(Errors.ERROR_INVALID_EMAIL + ": subdomínio de e-mail inválido");
-        
-        return true;
     };
 
-    public static isNameValid(name: string): boolean {
+    public static isNameValid(name: string): void {
         const regex: RegExp = /^[a-zA-ZáâãÁÂÃéêÉÊíÍóôõÓÔÕúÚçÇ' ]+$/;
         const regexMultipleSpaces: RegExp = /  /;
 
@@ -90,11 +84,9 @@ export default class UserValidator {
 
         if(regexMultipleSpaces.test(name))
             throw new Error(Errors.ERROR_INVALID_NAME + ": o nome informado contém múltiplos espaços seguidos");
-
-        return true;
     };
 
-    public static isDateBirthValid(dateBirth: string): boolean {
+    public static isDateBirthValid(dateBirth: string): void {
         const regexCharacter: RegExp = /^[0-9/]+$/;
         const regexFormat: RegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
         
@@ -119,11 +111,9 @@ export default class UserValidator {
 
         if(dateBirthTypeDate.getTime() > today.getTime())
             throw new Error(Errors.ERROR_INVALID_DATE_BIRTH + ": a data inserida está no futuro");
-
-        return true;
     };
 
-    public static isPasswordValid(password: string): boolean {
+    public static isPasswordValid(password: string): void {
         const regex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])[A-Za-z\d\W\s]+$/;
 
         if(typeof password !== "string")
@@ -136,11 +126,9 @@ export default class UserValidator {
 
         if(!regex.test(password))
             throw new Error(Errors.ERROR_INVALID_PASSWORD + ": a senha deve conter, ao menos, um número, um caractere maiúsculo, um caractere minúsculo e um caractere especial");
-
-        return true;
     };
 
-    public static isProfileValid(profile: string): boolean {
+    public static isProfileValid(profile: string): void {
         if(typeof profile !== "string")
             throw new Error(Errors.ERROR_INVALID_PROFILE + ": tipo de dado inválido");
 
@@ -148,7 +136,5 @@ export default class UserValidator {
 
         if(profile !== Profiles.ADMINISTRADOR && profile !== Profiles.USUARIO)
             throw new Error(Errors.ERROR_INVALID_PROFILE + ": perfil inexistente");
-
-        return true;
     };
 };
