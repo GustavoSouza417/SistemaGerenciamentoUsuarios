@@ -5,7 +5,7 @@ type User {
     name: String!,
     dateBirth: String!,
     password: String!,
-    profile: String!
+    profile: Profile!
 },
 
 type Query {
