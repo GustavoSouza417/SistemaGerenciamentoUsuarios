@@ -1,0 +1,34 @@
+query ListUser($id1: ID!, $id2: ID!) {
+    firstUser: listUser(id: $id1) {
+        ...fullUser
+    },
+
+    secondUser: listUser(id: $id2) {
+        ...fullUser
+    }
+}
+
+query ListUsers {
+    listUsers {
+        ...fullUser
+    }
+}
+
+fragment fullUser on User {
+    id
+    cpf
+    email
+    name
+    dateBirth
+    password
+    profile {
+        id
+        name
+    }
+}
+
+# variables
+# {
+#   "id1": "1",
+#   "id2": "2"
+# }
