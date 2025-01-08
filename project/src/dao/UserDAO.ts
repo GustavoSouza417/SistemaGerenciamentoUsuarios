@@ -9,10 +9,10 @@ export default class UserDAO {
 
     public static listUser(id: string): iUser | null {
         let json: iDatabase = DatabaseConnection.readJson();
-        
-        return Object.values(json.users).find((user: iUser) => {
+
+        return Object.values(json.users).find((user: iUser) =>
             user.id === id
-        }) || null;
+        ) || null;
     };
 
     public static listUsers(): iUser[] | null {
