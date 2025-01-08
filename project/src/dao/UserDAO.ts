@@ -15,8 +15,9 @@ export default class UserDAO {
         ) || null;
     };
 
-    public static listUsers(): iUser[] | null {
-        return null;
+    public static listUsers(): iUser[] {
+        let json: iDatabase = DatabaseConnection.readJson();
+        return Object.values(json.users);
     };
 
     public static update(id: string): void {
