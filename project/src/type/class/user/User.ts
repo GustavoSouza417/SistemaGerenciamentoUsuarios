@@ -1,6 +1,7 @@
-import iUser from "../interface/user/User.js";
+// import DatabaseConnection from "../../../model/DatabaseConnection.js";
+import InputCreateUser from "../../interface/user/InputCreateUser.js";
 
-export default abstract class User {
+export default class User {
     protected readonly id: string;
     protected readonly cpf: string;
     protected readonly email: string;
@@ -9,8 +10,8 @@ export default abstract class User {
     protected password: string;
     protected profile: string;
 
-    constructor(user: iUser) {
-        this.id = user.id;
+    constructor(user: InputCreateUser) {
+        this.id = "11"//DatabaseConnection.autoincrement();
         this.cpf = user.cpf;
         this.email = user.email;
         this.name = user.name;
