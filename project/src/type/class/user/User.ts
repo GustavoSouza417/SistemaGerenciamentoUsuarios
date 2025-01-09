@@ -1,5 +1,5 @@
 // import DatabaseConnection from "../../../model/DatabaseConnection.js";
-import InputCreateUser from "../../interface/user/InputCreateUser.js";
+import InputCreateUser from "../../interface/inputType/inputCreateUser/InputCreateUser.js";
 
 export default class User {
     protected readonly id: string;
