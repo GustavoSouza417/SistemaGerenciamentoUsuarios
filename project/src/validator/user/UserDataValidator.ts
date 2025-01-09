@@ -1,26 +1,23 @@
 import { isCPF } from "validation-br";
-import { Errors } from "../type/enum/errors/Errors.js";
-import { Profiles } from "../type/enum/profiles/Profiles.js";
+import { Errors } from "../../type/enum/errors/Errors.js";
+import { Profiles } from "../../type/enum/profiles/Profiles.js";
 
-export default class UserValidator {
-    //falta verificar se o ID já existe ou não
+export default class UserDataValidator {
     public static isIdValid(id: string): void {
         const regex: RegExp = /^[0-9]+$/;
         
         if(typeof id !== "string")
             throw new Error(Errors.ERROR_INVALID_ID + ": tipo de dado inválido");
-           
+
         id = id.trim();
 
         if(id.length < 1)
-            throw new Error(Errors.ERROR_INVALID_ID + ": todo ID tem, ao menos, um caractere");
+            throw new Error(Errors.ERROR_INVALID_ID + ": todo ID tem, ao menos, um caractere numérico");
 
         if(!regex.test(id))
             throw new Error(Errors.ERROR_INVALID_ID + ": caracteres inválidos");
     };
 
-    //falta verificar se o CPF já existe ou não
-    //verificar se o campo de CPF está vazio
     public static isCpfValid(cpf: string): void {
         const regex: RegExp = /^[0-9]+$/;
         
@@ -28,6 +25,9 @@ export default class UserValidator {
             throw new Error(Errors.ERROR_INVALID_CPF + ": tipo de dado inválido");            
             
         cpf = cpf.trim();
+
+        if(cpf === "")
+            throw new Error(Errors.ERROR_INVALID_CPF + ": campo vazio");
 
         if(cpf.length !== 11)
             throw new Error(Errors.ERROR_INVALID_CPF + ": todo CPF deve ter 11 caracteres");
@@ -39,11 +39,9 @@ export default class UserValidator {
             throw new Error(Errors.ERROR_INVALID_CPF + ": CPF inválido");
     };
 
-    //falta verificar se o e-mail já existe ou não
-    //falta verificar se o e-mail não tem nenhum arroba
-    //verificar se o campo de e-mail está vazio
     public static isEmailValid(email: string): void {
         const regex: RegExp = /^[a-zA-Z0-9.+-_%]+$/;
+        const regexHaveAtSymbol: RegExp = /[@]/;
         
         if(typeof email !== "string")
             throw new Error(Errors.ERROR_INVALID_EMAIL + ": tipo de dado inválido");
@@ -51,11 +49,17 @@ export default class UserValidator {
         email = email.trim();
         email = email.toLowerCase();
 
+        if(email === "")
+            throw new Error(Errors.ERROR_INVALID_EMAIL + ": campo vazio");
+
         if(email.length < 11)
             throw new Error(Errors.ERROR_INVALID_EMAIL + ": todo e-mail tem, ao menos, 11 caracteres");
 
         if(email.length > 70)
             throw new Error(Errors.ERROR_INVALID_EMAIL + ": o tamanho do e-mail não pode exceder 70 caracteres");
+
+        if(!regexHaveAtSymbol.test(email))
+            throw new Error(Errors.ERROR_INVALID_EMAIL + ": todo e-mail possui um arroba (@)");
 
         if((email.split("@").length - 1) !== 1) //verifica se há apenas um arroba no e-mail
             throw new Error(Errors.ERROR_INVALID_EMAIL + ": o e-mail só pode ter um arroba");
@@ -89,21 +93,17 @@ export default class UserValidator {
             throw new Error(Errors.ERROR_INVALID_NAME + ": o nome informado contém múltiplos espaços seguidos");
     };
 
-    //verificar se o campo data está vazio
-    //colocar a data no sistema de data brasileiro
     public static isDateBirthValid(dateBirth: string): void {
-        const regexCharacter: RegExp = /^[0-9/-\\]+$/;
+        const regexCharacter: RegExp = /^[0-9/-]+$/;
         const regexFormat: RegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
-        
-        const dateBirthTypeDate: Date = new Date(dateBirth);
-        const today: Date = new Date();
-        dateBirthTypeDate.setHours(0, 0, 0, 0);
-        today.setHours(0, 0, 0, 0);
 
         if(typeof dateBirth !== "string")
             throw new Error(Errors.ERROR_INVALID_DATE_BIRTH + ": tipo de dado inválido");
 
         dateBirth = dateBirth.trim();
+
+        if(dateBirth === "")
+            throw new Error(Errors.ERROR_INVALID_DATE_BIRTH + ": campo vazio");
 
         if(dateBirth.length !== 10)
             throw new Error(Errors.ERROR_INVALID_DATE_BIRTH + ": o campo de data deve ter 10 caracteres");
@@ -114,11 +114,21 @@ export default class UserValidator {
         if(!regexFormat.test(dateBirth))
             throw new Error(Errors.ERROR_INVALID_DATE_BIRTH + ": formato inválido");
 
+        const dateBirthArray: string[] = dateBirth.split("/");
+        const today: Date = new Date();
+
+        if((today.getFullYear() - parseInt(dateBirthArray[2]!)) > 125)
+            throw new Error(Errors.ERROR_INVALID_DATE_BIRTH + ": não existem pessoas vivas com essa idade");
+        
+        const dateBirthAmericanFormat: string = dateBirthArray[1] + "/" + dateBirthArray[0] + "/" + dateBirthArray[2];
+        const dateBirthTypeDate: Date = new Date(dateBirthAmericanFormat);
+        dateBirthTypeDate.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
+
         if(dateBirthTypeDate.getTime() > today.getTime())
             throw new Error(Errors.ERROR_INVALID_DATE_BIRTH + ": a data inserida está no futuro");
     };
 
-    //verificar se o campo senha está vazio
     public static isPasswordValid(password: string): void {
         const regex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])[A-Za-z\d\W\s]+$/;
 
@@ -127,6 +137,9 @@ export default class UserValidator {
 
         password = password.trim();
 
+        if(password === "")
+            throw new Error(Errors.ERROR_INVALID_PASSWORD + ": campo vazio");
+
         if(password.length < 8)
             throw new Error(Errors.ERROR_INVALID_PASSWORD + ": a senha deve ter, ao menos, 8 caracteres");
 
@@ -134,13 +147,14 @@ export default class UserValidator {
             throw new Error(Errors.ERROR_INVALID_PASSWORD + ": a senha deve conter, ao menos, um número, um caractere maiúsculo, um caractere minúsculo e um caractere especial");
     };
 
-    //verificar se o campo perfil está vazio
-    //verificar caracteres inválidos
     public static isProfileValid(profile: string): void {
         if(typeof profile !== "string")
             throw new Error(Errors.ERROR_INVALID_PROFILE + ": tipo de dado inválido");
 
         profile = profile.trim();
+
+        if(profile === "")
+            throw new Error(Errors.ERROR_INVALID_PROFILE + " campo vazio");
 
         if(profile !== Profiles.ADMINISTRADOR && profile !== Profiles.USUARIO)
             throw new Error(Errors.ERROR_INVALID_PROFILE + ": perfil inexistente");
