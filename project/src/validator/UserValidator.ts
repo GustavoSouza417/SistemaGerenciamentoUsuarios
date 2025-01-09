@@ -20,6 +20,7 @@ export default class UserValidator {
     };
 
     //falta verificar se o CPF já existe ou não
+    //verificar se o campo de CPF está vazio
     public static isCpfValid(cpf: string): void {
         const regex: RegExp = /^[0-9]+$/;
         
@@ -39,6 +40,8 @@ export default class UserValidator {
     };
 
     //falta verificar se o e-mail já existe ou não
+    //falta verificar se o e-mail não tem nenhum arroba
+    //verificar se o campo de e-mail está vazio
     public static isEmailValid(email: string): void {
         const regex: RegExp = /^[a-zA-Z0-9.+-_%]+$/;
         
@@ -86,8 +89,10 @@ export default class UserValidator {
             throw new Error(Errors.ERROR_INVALID_NAME + ": o nome informado contém múltiplos espaços seguidos");
     };
 
+    //verificar se o campo data está vazio
+    //colocar a data no sistema de data brasileiro
     public static isDateBirthValid(dateBirth: string): void {
-        const regexCharacter: RegExp = /^[0-9/]+$/;
+        const regexCharacter: RegExp = /^[0-9/-\\]+$/;
         const regexFormat: RegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
         
         const dateBirthTypeDate: Date = new Date(dateBirth);
@@ -113,6 +118,7 @@ export default class UserValidator {
             throw new Error(Errors.ERROR_INVALID_DATE_BIRTH + ": a data inserida está no futuro");
     };
 
+    //verificar se o campo senha está vazio
     public static isPasswordValid(password: string): void {
         const regex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])[A-Za-z\d\W\s]+$/;
 
@@ -128,6 +134,8 @@ export default class UserValidator {
             throw new Error(Errors.ERROR_INVALID_PASSWORD + ": a senha deve conter, ao menos, um número, um caractere maiúsculo, um caractere minúsculo e um caractere especial");
     };
 
+    //verificar se o campo perfil está vazio
+    //verificar caracteres inválidos
     public static isProfileValid(profile: string): void {
         if(typeof profile !== "string")
             throw new Error(Errors.ERROR_INVALID_PROFILE + ": tipo de dado inválido");
