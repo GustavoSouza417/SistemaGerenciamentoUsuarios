@@ -1,7 +1,8 @@
 import UserService from "../../../service/UserService.js";
-// import User from "../../../type/class/User.js";
+import User from "../../../type/class/user/User.js";
 import iUser from "../../../type/interface/user/User.js";
 import iProfile from "../../../type/interface/profile/Profile.js";
+import InputCreateUser from "../../../type/interface/user/InputCreateUser.js";
 
 export default {
     User: {
@@ -17,6 +18,12 @@ export default {
 
         listUsers(): iUser[] {
             return UserService.listUsers();
+        }
+    },
+
+    Mutation: {
+        createUser(_: any, args: {user: InputCreateUser} ): User {
+            return UserService.createUser(args.user);
         }
     }
 };
