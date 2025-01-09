@@ -1,4 +1,4 @@
-// import DatabaseConnection from "../../../model/DatabaseConnection.js";
+import DatabaseConnection from "../../../model/DatabaseConnection.js";
 import InputCreateUser from "../../interface/inputType/inputCreateUser/InputCreateUser.js";
 
 export default class User {
@@ -11,7 +11,7 @@ export default class User {
     protected profile: string;
 
     constructor(user: InputCreateUser) {
-        this.id = "11"//DatabaseConnection.autoincrement();
+        this.id = DatabaseConnection.autoincrement();
         this.cpf = user.cpf;
         this.email = user.email;
         this.name = user.name;
