@@ -1,7 +1,7 @@
-import DatabaseConnection from "../model/DatabaseConnection.js";
-import User from "../type/class/user/User.js";
-import iDatabase from "../type/interface/database/Database.js";
-import iUser from "../type/interface/user/User.js";
+import DatabaseConnection from "../../model/DatabaseConnection.js";
+import User from "../../type/class/user/User.js";
+import iDatabase from "../../type/interface/database/Database.js";
+import iUser from "../../type/interface/user/User.js";
 
 export default class UserDAO {
     public static create(user: User): void {
@@ -43,5 +43,29 @@ export default class UserDAO {
 
     public static deleteUsers(): void {
 
+    };
+
+    public static thisIdExists(id: string): boolean {
+        let json: iDatabase = DatabaseConnection.readJson();
+
+        return Object.values(json.users).some((user: iUser) => 
+            user.id === id
+        );
+    };
+
+    public static thisCpfExists(cpf: string): boolean {
+        let json: iDatabase = DatabaseConnection.readJson();
+
+        return Object.values(json.users).some((user: iUser) => 
+            user.cpf === cpf
+        );
+    };
+
+    public static thisEmailExists(email: string): boolean {
+        let json: iDatabase = DatabaseConnection.readJson();
+
+        return Object.values(json.users).some((user: iUser) => 
+            user.email === email
+        );
     };
 };
