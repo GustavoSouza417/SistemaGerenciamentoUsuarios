@@ -8,7 +8,20 @@ type User {
     profile: Profile!
 },
 
+input inputCreateUser {
+    cpf: String!,
+    email: String!,
+    name: String!,
+    dateBirth: String!,
+    password: String!,
+    profile: ID!
+},
+
 type Query {
     listUser(id: ID!): User,
     listUsers: [User]
+},
+
+type Mutation {
+    createUser(user: inputCreateUser!): User
 }
