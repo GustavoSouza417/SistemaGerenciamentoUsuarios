@@ -23,4 +23,22 @@ export default class DatabaseConnection {
             throw new Error(Errors.ERROR_SAVING_DATA);
         }
     };
+
+    // public static autoincrement(): string {
+    //     let json: iDatabase;
+    //     let lastUserId: number;
+    //     let key: string | undefined;
+
+    //     json = this.readJson();
+    //     lastUserId = Object.keys(json.users).length - 1; //Get the last user's ID
+
+    //     console.log("My last user: ", lastUserId, "\n\n");
+
+    //     if(lastUserId > -1) {
+    //         key = Object.keys(json.users)[lastUserId];
+    //         console.log("\n\nMinha key: ", key, "\n\n");
+    //     }
+        
+    //     return "";
+    // };
 };
