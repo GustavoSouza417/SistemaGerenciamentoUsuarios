@@ -3,56 +3,20 @@
     "user1": {
       "id": "1",
       "cpf": "95194310048",
-      "email": "a@gmail.com",
-      "name": "Jorjão",
-      "dateBirth": "01/08/2025",
-      "password": "PPppPPPP1Ppp@",
+      "email": "joao@gmail.com",
+      "name": "João Victor",
+      "dateBirth": "12/12/1999",
+      "password": "aA@1pppp",
       "profile": "1"
     },
     "user2": {
       "id": "2",
-      "cpf": "95194310048",
-      "email": "ass@gmail.com",
-      "name": "Pereira",
-      "dateBirth": "01/08/2020",
-      "password": "kkkk12K@",
-      "profile": "2"
-    },
-    "user6": {
-      "id": "6",
-      "cpf": "95194310048",
-      "email": "ass@gmail.com",
-      "name": "Pereira",
-      "dateBirth": "01/08/2020",
-      "password": "kkkk12K@",
-      "profile": "2"
-    },
-    "user9": {
-      "id": "9",
-      "cpf": "95194310048",
-      "email": "ass@gmail.com",
-      "name": "Pereira",
-      "dateBirth": "01/08/2020",
-      "password": "kkkk12K@",
-      "profile": "2"
-    },
-    "user10": {
-      "id": "10",
-      "cpf": "95194310048",
-      "email": "ass@gmail.com",
-      "name": "Pereira",
-      "dateBirth": "01/08/2020",
-      "password": "kkkk12K@",
-      "profile": "2"
-    },
-    "user11": {
-      "id": "11",
-      "cpf": "95194310048",
-      "email": "ass@gmail.com",
-      "name": "Pereira",
-      "dateBirth": "01/08/2020",
-      "password": "kkkk12K@",
-      "profile": "2"
+      "cpf": "46424888802",
+      "email": "joao01@gmail.com",
+      "name": "João Victor",
+      "dateBirth": "12/12/1999",
+      "password": "aA@1pppp",
+      "profile": "1"
     }
   },
   "profiles": {
