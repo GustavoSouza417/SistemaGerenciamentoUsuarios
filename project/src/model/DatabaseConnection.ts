@@ -24,21 +24,21 @@ export default class DatabaseConnection {
         }
     };
 
-    // public static autoincrement(): string {
-    //     let json: iDatabase;
-    //     let lastUserId: number;
-    //     let key: string | undefined;
+    public static autoincrement(): string {
+        let json: iDatabase;
+        let lastUserId: number;
+        let key: string;
+        let increment: number = 0;
 
-    //     json = this.readJson();
-    //     lastUserId = Object.keys(json.users).length - 1; //Get the last user's ID
+        json = this.readJson();
+        lastUserId = Object.keys(json.users).length;
 
-    //     console.log("My last user: ", lastUserId, "\n\n");
-
-    //     if(lastUserId > -1) {
-    //         key = Object.keys(json.users)[lastUserId];
-    //         console.log("\n\nMinha key: ", key, "\n\n");
-    //     }
+        if(lastUserId > 0) {
+            key = (Object.values(json.users))[lastUserId - 1]?.id ?? "-1";
+            increment = parseInt(key);
+        };
         
-    //     return "";
-    // };
+        increment++;
+        return increment.toString();
+    };
 };
