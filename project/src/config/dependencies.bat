@@ -18,3 +18,4 @@ npm install ts-node
 npm install dotenv
 npm install fs
 npm install validation-br
+npm install crypto
