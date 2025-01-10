@@ -1,6 +1,7 @@
 import UserDataValidator from "../../validator/user/UserDataValidator.js";
 import UserExistsValidator from "../../validator/user/UserExistsValidator.js";
 import UserDAO from "../../dao/user/UserDAO.js";
+import Criptography from "../../security/user/Criptography.js";
 import User from "../../type/class/user/User.js";
 import iUser from "../../type/interface/user/User.js";
 import iProfile from "../../type/interface/profile/Profile.js";
@@ -37,6 +38,7 @@ export default class UserService {
         UserDataValidator.isPasswordValid(user.getPassword);
         UserDataValidator.isProfileValid(user.getProfile);
 
+        user.setPassword = Criptography.hashGenerator(user.getPassword);
         UserDAO.create(user);
         return user;
     };
