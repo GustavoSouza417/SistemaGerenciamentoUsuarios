@@ -1,24 +1,5 @@
 {
-  "users": {
-    "user1": {
-      "id": "1",
-      "cpf": "95194310048",
-      "email": "joao@gmail.com",
-      "name": "João Victor",
-      "dateBirth": "12/12/1999",
-      "password": "aA@1pppp",
-      "profile": "1"
-    },
-    "user2": {
-      "id": "2",
-      "cpf": "46424888802",
-      "email": "joao01@gmail.com",
-      "name": "João Victor",
-      "dateBirth": "12/12/1999",
-      "password": "aA@1pppp",
-      "profile": "1"
-    }
-  },
+  "users": {},
   "profiles": {
     "profile1": {
       "id": "1",
