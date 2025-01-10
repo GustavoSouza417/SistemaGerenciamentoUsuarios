@@ -1,15 +1,5 @@
 {
-  "users": {
-    "user1": {
-      "id": "1",
-      "cpf": "58469000039",
-      "email": "Sonic@gmail.com",
-      "name": "Sonic Garcia Moreira",
-      "dateBirth": "31/08/1977",
-      "password": "9464c3710d00e107623f6e6062e9ec21e9ee5c151199cff5a756fb523d0a18af821037c54f442e5fb70a3db009c2db52a2cc6895d1c490fd1b5c9996031a9e9c",
-      "profile": "1"
-    }
-  },
+  "users": {},
   "profiles": {
     "profile1": {
       "id": "1",
