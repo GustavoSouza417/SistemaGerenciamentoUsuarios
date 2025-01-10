@@ -17,13 +17,21 @@ input inputCreateUser {
     profile: ID!
 },
 
+input inputUpdateUser {
+    id: ID!,
+    name: String,
+    dateBirth: String,
+    password: String
+},
+
 type Query {
     listUser(id: ID!): User,
     listUsers: [User]
 },
 
 type Mutation {
-    createUser(user: inputCreateUser!): User,
+    createUser(user: inputCreateUser!): User!,
+    updateUser(user: inputUpdateUser!): User!,
     deleteUser(id: ID!): String!,
     deleteUsers: String!
 }

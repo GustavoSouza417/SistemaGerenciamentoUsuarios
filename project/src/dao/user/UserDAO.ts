@@ -4,7 +4,7 @@ import iDatabase from "../../type/interface/database/Database.js";
 import iUser from "../../type/interface/user/User.js";
 
 export default class UserDAO {
-    public static create(user: User): void {
+    public static create(user: User): void { //também serve para update
         const json: iDatabase = DatabaseConnection.readJson();
 
         json.users["user" + user.getId] = {
@@ -31,10 +31,6 @@ export default class UserDAO {
     public static listUsers(): iUser[] {
         const json: iDatabase = DatabaseConnection.readJson();
         return Object.values(json.users);
-    };
-
-    public static update(id: string): void {
-        id;
     };
 
     public static deleteUser(id: string): void {

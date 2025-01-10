@@ -3,6 +3,7 @@ import User from "../../../type/class/user/User.js";
 import iUser from "../../../type/interface/user/User.js";
 import iProfile from "../../../type/interface/profile/Profile.js";
 import InputCreateUser from "../../../type/interface/inputType/inputCreateUser/InputCreateUser.js";
+import InputUpdateUser from "../../../type/interface/inputType/inputUpdateUser/InputUpdateUser.js";
 
 export default {
     User: {
@@ -22,8 +23,12 @@ export default {
     },
 
     Mutation: {
-        createUser(_: any, args: {user: InputCreateUser} ): User {
+        createUser(_: any, args: {user: InputCreateUser}): User {
             return UserService.createUser(args.user);
+        },
+
+        updateUser(_: any, args: {user: InputUpdateUser}): User | null {
+            return UserService.updateUser(args.user);
         },
 
         deleteUser(_: any, args: {id: string}): string {
