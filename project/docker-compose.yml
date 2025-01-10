@@ -1,0 +1,13 @@
+version: '3'
+services:
+  api-graphql:
+    image: sgu:v1
+    container_name: sistema-gerenciamento-usuarios
+    restart: always
+    ports: 
+      - 5000:3000
+    networks:
+      - api-graphql-network
+networks:
+  api-graphql-network:
+    driver: bridge
