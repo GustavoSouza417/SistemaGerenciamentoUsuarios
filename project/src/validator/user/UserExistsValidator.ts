@@ -2,6 +2,11 @@ import UserDAO from "../../dao/user/UserDAO.js";
 import { Errors } from "../../type/enum/errors/Errors.js";
 
 export default class UserExistsValidator {
+    public static areThereUsers(): void {
+        if(UserDAO.listUsers().length === 0)
+            throw new Error(Errors.ERROR_THERE_ARE_NO_USERS);
+    };
+
     public static thisIdExists(id: string): void {
         if(UserDAO.thisIdExists(id))
             throw new Error(Errors.ERROR_REGISTERED_ID);
