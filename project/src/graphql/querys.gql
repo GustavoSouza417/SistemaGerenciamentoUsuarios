@@ -14,8 +14,14 @@ query ListUsers {
     }
 }
 
-mutation CreateUser($user: inputCreateUser!) {
-    createUser(user: $user) {
+mutation CreateUser($userCreate: inputCreateUser!) {
+    createUser(user: $userCreate) {
+        ...fullUser
+    }
+}
+
+mutation UpdateUser($userUpdate: inputUpdateUser!) {
+    updateUser(user: $userUpdate) {
         ...fullUser
     }
 }
@@ -47,12 +53,19 @@ fragment fullUser on User {
 #   "id2": "2",
 #   "id3": "1",
 
-#   "user": {
+#   "userCreate": {
 #     "cpf": "11111111111",
 #     "email": "i@gmail.com",
 #     "name": "Ian",
 #     "dateBirth": "11/01/2021",
 #     "password": "11223344",
-#     "profile": "1"
+#     "profile": "1",
+#   },
+
+#   "userUpdate": {
+#     "id": "1",
+#     "name": "Jose",
+#     "dateBirth": "20/12/2000",
+#     "password": "2222pP@a"
 #   }
 # }
