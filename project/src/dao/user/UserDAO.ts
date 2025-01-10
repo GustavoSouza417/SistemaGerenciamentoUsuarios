@@ -5,7 +5,7 @@ import iUser from "../../type/interface/user/User.js";
 
 export default class UserDAO {
     public static create(user: User): void {
-        let json: iDatabase = DatabaseConnection.readJson();
+        const json: iDatabase = DatabaseConnection.readJson();
 
         json.users["user" + user.getId] = {
             id: user.getId,
@@ -21,7 +21,7 @@ export default class UserDAO {
     };
 
     public static listUser(id: string): iUser | null {
-        let json: iDatabase = DatabaseConnection.readJson();
+        const json: iDatabase = DatabaseConnection.readJson();
 
         return Object.values(json.users).find((user: iUser) =>
             user.id === id
@@ -29,7 +29,7 @@ export default class UserDAO {
     };
 
     public static listUsers(): iUser[] {
-        let json: iDatabase = DatabaseConnection.readJson();
+        const json: iDatabase = DatabaseConnection.readJson();
         return Object.values(json.users);
     };
 
@@ -38,15 +38,23 @@ export default class UserDAO {
     };
 
     public static deleteUser(id: string): void {
-        id;
+        const json: iDatabase = DatabaseConnection.readJson();
+        delete json.users["user" + id];
+        DatabaseConnection.saveJson(json);
     };
 
     public static deleteUsers(): void {
+        const json: iDatabase = DatabaseConnection.readJson();
+        let key: string;
 
+        for(key in json.users)
+            delete json.users[key];
+        
+        DatabaseConnection.saveJson(json);
     };
 
     public static thisIdExists(id: string): boolean {
-        let json: iDatabase = DatabaseConnection.readJson();
+        const json: iDatabase = DatabaseConnection.readJson();
 
         return Object.values(json.users).some((user: iUser) => 
             user.id === id
@@ -54,7 +62,7 @@ export default class UserDAO {
     };
 
     public static thisCpfExists(cpf: string): boolean {
-        let json: iDatabase = DatabaseConnection.readJson();
+        const json: iDatabase = DatabaseConnection.readJson();
 
         return Object.values(json.users).some((user: iUser) => 
             user.cpf === cpf
@@ -62,7 +70,7 @@ export default class UserDAO {
     };
 
     public static thisEmailExists(email: string): boolean {
-        let json: iDatabase = DatabaseConnection.readJson();
+        const json: iDatabase = DatabaseConnection.readJson();
 
         return Object.values(json.users).some((user: iUser) => 
             user.email === email
