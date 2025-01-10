@@ -24,6 +24,14 @@ export default {
     Mutation: {
         createUser(_: any, args: {user: InputCreateUser} ): User {
             return UserService.createUser(args.user);
+        },
+
+        deleteUser(_: any, args: {id: string}): string {
+            return UserService.deleteUser(args.id);
+        },
+
+        deleteUsers(): string {
+            return UserService.deleteUsers();
         }
     }
 };

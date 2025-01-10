@@ -20,6 +20,14 @@ mutation CreateUser($user: inputCreateUser!) {
     }
 }
 
+mutation DeleteUser($id3: ID!) {
+    deleteUser(id: $id3)
+}
+
+mutation DeleteUsers {
+    deleteUsers
+}
+
 fragment fullUser on User {
     id
     cpf
@@ -37,6 +45,7 @@ fragment fullUser on User {
 # {
 #   "id1": "1",
 #   "id2": "2",
+#   "id3": "1",
 
 #   "user": {
 #     "cpf": "11111111111",

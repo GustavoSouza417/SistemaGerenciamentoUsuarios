@@ -40,4 +40,17 @@ export default class UserService {
         UserDAO.create(user);
         return user;
     };
+
+    public static deleteUser(id: string): string {
+        UserDataValidator.isIdValid(id);
+        UserExistsValidator.thisIdNoExists(id);
+        UserDAO.deleteUser(id);
+        return "Usuário excluído com sucesso!";
+    };
+
+    public static deleteUsers(): string {
+        UserExistsValidator.areThereUsers();
+        UserDAO.deleteUsers();            
+        return "Usuários excluídos com sucesso!";
+    };
 };
