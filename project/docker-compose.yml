@@ -1,7 +1,7 @@
 version: '3'
 services:
   api-graphql:
-    image: sgu:v1
+    image: gustavosilvasouza/sistema-gerenciamento-usuarios:v1
     container_name: sistema-gerenciamento-usuarios
     restart: always
     ports: 
