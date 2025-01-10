@@ -13,6 +13,7 @@ export enum Errors {
     ERROR_INVALID_PROFILE = "The profile received is invalid",
 
     //user exists validator
+    ERROR_THERE_ARE_NO_USERS = "There are no users in the database",
     ERROR_REGISTERED_ID = "The received ID is already registered",
     ERROR_REGISTERED_CPF = "The received CPF is already registered",
     ERROR_REGISTERED_EMAIL = "The received email is already registered",
