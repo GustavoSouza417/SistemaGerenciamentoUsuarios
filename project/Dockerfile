@@ -1,7 +1,8 @@
 FROM node:23.4.0-alpine
 EXPOSE 3000
 WORKDIR /app
-COPY . .
+
+COPY package*.json .
 
 RUN npm install apollo-server \
                 graphql \
@@ -12,8 +13,8 @@ RUN npm install apollo-server \
                 @types/node \
                 ts-node \
                 dotenv \
-                fs \
-                validation-br \
-                crypto
+                validation-br
+
+COPY . .
 
 CMD [ "npm", "start" ]
