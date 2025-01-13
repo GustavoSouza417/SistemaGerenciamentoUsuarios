@@ -1,9 +1,9 @@
-import UserService from "../../../service/user/UserService.js";
-import User from "../../../type/class/user/User.js";
-import iUser from "../../../type/interface/user/User.js";
-import iProfile from "../../../type/interface/profile/Profile.js";
-import InputCreateUser from "../../../type/interface/inputType/inputCreateUser/InputCreateUser.js";
-import InputUpdateUser from "../../../type/interface/inputType/inputUpdateUser/InputUpdateUser.js";
+import UserService from "../../../service/user/user-service.js";
+import User from "../../../type/class/user/user.js";
+import iUser from "../../../type/interface/user/user.js";
+import iProfile from "../../../type/interface/profile/profile.js";
+import InputCreateUser from "../../../type/interface/input-type/input-create-user/input-create-user.js";
+import InputUpdateUser from "../../../type/interface/input-type/input-update-user/input-update-user.js";
 
 export default {
     User: {

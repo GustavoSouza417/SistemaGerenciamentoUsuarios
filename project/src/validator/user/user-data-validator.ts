@@ -1,6 +1,6 @@
 import { isCPF } from "validation-br";
-import { Errors } from "../../type/enum/errors/Errors.js";
-import { Profiles } from "../../type/enum/profiles/Profiles.js";
+import { Errors } from "../../type/enum/errors/errors.js";
+import { Profiles } from "../../type/enum/profiles/profiles.js";
 
 export default class UserDataValidator {
     public static isIdValid(id: string): void {

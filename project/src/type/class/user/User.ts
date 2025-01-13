@@ -1,7 +1,7 @@
-import DatabaseConnection from "../../../model/DatabaseConnection.js";
-import Criptography from "../../../security/user/Criptography.js";
-import iUser from "../../interface/user/User.js";
-import InputCreateUser from "../../interface/inputType/inputCreateUser/InputCreateUser.js";
+import DatabaseConnection from "../../../model/database-connection.js";
+import Criptography from "../../../security/user/criptography.js";
+import iUser from "../../interface/user/user.js";
+import InputCreateUser from "../../interface/input-type/input-create-user/input-create-user.js";
 
 export default class User {
     protected id: string;

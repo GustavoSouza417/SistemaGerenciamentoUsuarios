@@ -1,5 +1,5 @@
-import iUser from "../user/User.js";
-import iProfile from "../profile/Profile.js";
+import iUser from "../user/user.js";
+import iProfile from "../profile/profile.js";
 
 export default interface iDatabase {
     users: {

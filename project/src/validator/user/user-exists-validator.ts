@@ -1,5 +1,5 @@
-import UserDAO from "../../dao/user/UserDAO.js";
-import { Errors } from "../../type/enum/errors/Errors.js";
+import UserDAO from "../../dao/user/user-dao.js";
+import { Errors } from "../../type/enum/errors/errors.js";
 
 export default class UserExistsValidator {
     public static areThereUsers(): void {

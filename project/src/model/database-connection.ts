@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
-import iDatabase from "../type/interface/database/Database.js";
-import { Errors } from "../type/enum/errors/Errors.js";
+import iDatabase from "../type/interface/database/database.js";
+import { Errors } from "../type/enum/errors/errors.js";
 
 export default class DatabaseConnection {
     private static readonly url: string = "./src/model/database.json";

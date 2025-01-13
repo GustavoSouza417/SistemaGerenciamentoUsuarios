@@ -1,14 +1,14 @@
-import UserDataValidator from "../../validator/user/UserDataValidator.js";
-import UserExistsValidator from "../../validator/user/UserExistsValidator.js";
-import UserDAO from "../../dao/user/UserDAO.js";
-import Criptography from "../../security/user/Criptography.js";
-import UserIsNoEmpty from "../../validator/user/UserIsNoEmpty.js";
-import User from "../../type/class/user/User.js";
-import iUser from "../../type/interface/user/User.js";
-import iProfile from "../../type/interface/profile/Profile.js";
-import InputCreateUser from "../../type/interface/inputType/inputCreateUser/InputCreateUser.js";
-import InputUpdateUser from "../../type/interface/inputType/inputUpdateUser/InputUpdateUser.js";
-import { Profiles } from "../../type/enum/profiles/Profiles.js";
+import UserDataValidator from "../../validator/user/user-data-validator.js";
+import UserExistsValidator from "../../validator/user/user-exists-validator.js";
+import UserDAO from "../../dao/user/user-dao.js";
+import Criptography from "../../security/user/criptography.js";
+import UserIsNoEmpty from "../../validator/user/user-is-no-empty.js";
+import User from "../../type/class/user/user.js";
+import iUser from "../../type/interface/user/user.js";
+import iProfile from "../../type/interface/profile/profile.js";
+import InputCreateUser from "../../type/interface/input-type/input-create-user/input-create-user.js";
+import InputUpdateUser from "../../type/interface/input-type/input-update-user/input-update-user.js";
+import { Profiles } from "../../type/enum/profiles/profiles.js";
 
 export default class UserService {
     public static listProfile(user: iUser): iProfile {
