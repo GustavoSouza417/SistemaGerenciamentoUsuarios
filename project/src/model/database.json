@@ -1,5 +1,15 @@
 {
-  "users": {},
+  "users": {
+    "user1": {
+      "id": "1",
+      "cpf": "09554017049",
+      "email": "geovana@gmail.com",
+      "name": "Geovana Macedo dos Campos",
+      "dateBirth": "30/06/1977",
+      "password": "c445f7751bffa64f7b1d47d2ca6c44571a2d60eea796c81a236f4a9082f477f0fe4e4d97128fdbcb1dbc411f3e43a586ba91bfae95309a4b45b3291e73c5cf54",
+      "profile": "1"
+    }
+  },
   "profiles": {
     "profile1": {
       "id": "1",

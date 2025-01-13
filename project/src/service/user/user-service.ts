@@ -76,12 +76,12 @@ export default class UserService {
         UserDataValidator.isIdValid(id);
         UserExistsValidator.thisIdNoExists(id);
         UserDAO.deleteUser(id);
-        return "Usuário excluído com sucesso!";
+        return "User successfully deleted!";
     };
 
     public static deleteUsers(): string {
         UserExistsValidator.areThereUsers();
         UserDAO.deleteUsers();            
-        return "Usuários excluídos com sucesso!";
+        return "Users successfully deleted!";
     };
 };
