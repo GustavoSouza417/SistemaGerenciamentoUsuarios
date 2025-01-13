@@ -13,8 +13,8 @@ import { Profiles } from "../../type/enum/profiles/profiles.js";
 export default class UserService {
     public static listProfile(user: iUser): iProfile {
         if(user.id === Profiles.ADMINISTRADOR)
-            return { id: "1", name: "Administrador" };
-        return { id: "2", name: "Usuário" };
+            return { id: "1", name: "Administrator" };
+        return { id: "2", name: "User" };
     };
 
     public static listUser(id: string): iUser | null {

@@ -3,11 +3,11 @@
   "profiles": {
     "profile1": {
       "id": "1",
-      "name": "Administrador"
+      "name": "Administrator"
     },
     "profile2": {
       "id": "2",
-      "name": "Usuário"
+      "name": "User"
     }
   }
 }

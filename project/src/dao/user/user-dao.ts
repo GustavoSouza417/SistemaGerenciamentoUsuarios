@@ -4,7 +4,7 @@ import iDatabase from "../../type/interface/database/database.js";
 import iUser from "../../type/interface/user/user.js";
 
 export default class UserDAO {
-    public static create(user: User): void { //também serve para update
+    public static create(user: User): void { //It also applies to the update method
         const json: iDatabase = DatabaseConnection.readJson();
 
         json.users["user" + user.getId] = {
